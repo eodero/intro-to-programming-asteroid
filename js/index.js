@@ -15,5 +15,37 @@ for (let i = 0; i < skills.length; i++) {
     skillsList.appendChild(skill);
 }
 
+// Handle message from submit
+const messageForm = document.querySelector('form[name="leave_message"]')
+messageForm.addEventListener('submit', (e) => {
+    // prevent default refreshing behavior
+    e.preventDefault();
 
-// console.log(skillsList);
+    // create variables for each form field
+    const user_name = messageForm.name.value;
+    const user_email = messageForm.email.value;
+    const user_message = messageForm.message.value;
+
+    // Display messages in list
+    const messageSection = document.getElementById('messages');
+    const messageList = messageSection.children[1];
+    const newMessage = document.createElement('li');
+    newMessage.innerHTML = `<a href="mailto:${user_email}">${user_name}</a><span> wrote: ${user_message}</span>`;
+    messageList.appendChild(newMessage);
+
+    // create button element
+    const removeButton = document.createElement('button');
+    removeButton.innerText = 'remove';
+    removeButton.type = 'button';
+    newMessage.appendChild(removeButton);
+
+    // handle the removeButton
+    removeButton.addEventListener('click', (e) => {
+        const entry = removeButton.parentNode;
+        entry.remove();
+
+    })
+    // reset the form
+    messageForm.reset();
+
+})
