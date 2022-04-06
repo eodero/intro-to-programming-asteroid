@@ -13,8 +13,7 @@
     <section>
         <header>
             <h1>Erick O Odero</h1>
-            <img src="https://cdn.britannica.com/84/6984-004-19BE944C/Bumblebee.jpg?s=1500x700&q=85"
-                alt="Bee on a flower">
+            <img src="https://avatars.githubusercontent.com/u/84427589?v=4" alt="Author's profile picture">
             <nav>
                 <ul>
                     <li><a href="../intro-to-programming-asteroid/index.html">Home</a></li>
@@ -95,14 +94,17 @@
             </nav>
         </section>
 
-        <section id="connect">
+        <section id="skills">
+            <h2>Skills</h2>
+            <ul></ul>
+        </section>
 
+        <!-- 
+<section id="connect">
 
             <form action="index.html" method="post">
-                <section id="skills">
-                    <h2>Skills</h2>
-                    <ul></ul>
-                </section>
+
+
                 <h2>Connect</h2>
                 <fieldset>
                     <legend>Contact me</legend>
@@ -122,6 +124,8 @@
             </form>
         </section>
 
+        -->
+
         <!--
         <section>
             <footer>
@@ -132,6 +136,32 @@
         </section>
         -->
     </main>
+
+    <!--Create leave message section and add form-->
+    <section>
+        <h2>Leave a Message</h2>
+        <form name="leave_message">
+            <label for="name">Name:</label><br>
+            <input type="text" name="name" required="true"><br>
+
+            <label for="email">Email:</label><br>
+            <input type="email" name="email" required="true"><br>
+
+            <label for="message">Your message:</label><br>
+            <textarea name="message" required="true"></textarea><br>
+
+            <button type="submit">Submit</button>
+        </form>
+    </section>
+
+    <!-- Add message list section-->
+    <section id="messages">
+        <h2>Messages</h2>
+        <ul>
+
+        </ul>
+    </section>
+
     <footer></footer>
     <script src="js/index.js"></script>
 </body>
