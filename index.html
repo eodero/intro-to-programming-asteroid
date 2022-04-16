@@ -6,11 +6,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edgev">
+    <link rel="stylesheet" href="css/index.css">
 </head>
 
 <body>
 
-    <section>
+    <section class="list">
         <header>
             <h1>Erick O Odero</h1>
             <img src="https://avatars.githubusercontent.com/u/84427589?v=4" alt="Author's profile picture">
@@ -23,7 +24,6 @@
                 </ul>
             </nav>
         </header>
-
     </section>
 
     <main>
@@ -38,12 +38,11 @@
                 our
                 communities, my interest in coding was conjured and I hope to immerse myself full time in the industry.
             </p>
-
         </section>
 
-        <section>
+        <section class="list">
             <h1>Experience</h1>
-            <ul>
+            <ul id="exp">
                 <li>clinical Research Associate - United States</li>
                 <li>HIV program coordinator - Kenya</li>
                 <li>Health program coordinator - Kenya</li>
@@ -59,7 +58,7 @@
 
         </section>
 
-        <section>
+        <section class="list">
             <h1>My coding and learning tools-software and hardware</h1>
             <ul>
                 <li><a href="https://code.visualstudio.com/">Visual Studio Code</a></li>
@@ -85,7 +84,7 @@
         </section>
             -->
 
-        <section>
+        <section class="section">
             <h1>My resume</h1>
             <nav>
                 <ul>
@@ -95,8 +94,8 @@
         </section>
 
         <section id="skills">
-            <h2>Skills</h2>
-            <ul></ul>
+            <h2 class="list">Skills</h2>
+            <ul id="skillz"></ul>
         </section>
 
         <!-- 
@@ -138,19 +137,27 @@
     </main>
 
     <!--Create leave message section and add form-->
-    <section>
+    <section class="section">
         <h2>Leave a Message</h2>
         <form name="leave_message">
-            <label for="name">Name:</label><br>
-            <input type="text" name="name" required="true"><br>
 
-            <label for="email">Email:</label><br>
-            <input type="email" name="email" required="true"><br>
+            <fieldset>
+                <legend><span class="number">1</span> Your details</legend>
+                <label for="name">Name:</label><br>
+                <input type="text" name="name" required="true"><br>
 
-            <label for="message">Your message:</label><br>
-            <textarea name="message" required="true"></textarea><br>
+                <label for="email">Email:</label><br>
+                <input type="email" name="email" required="true"><br>
+            </fieldset>
+
+            <fieldset>
+                <legend><span class="number">2</span> Your Message</legend>
+                <label for="message">Message:</label><br>
+                <textarea name="message" required="true"></textarea><br>
+            </fieldset>
 
             <button type="submit">Submit</button>
+
         </form>
     </section>
 
