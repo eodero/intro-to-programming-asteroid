@@ -4,9 +4,94 @@
 
 body {
     background-color: whitesmoke;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    color: darkblue;
+    font-family: Arial, Helvetica, sans-serif;
+    color: black;
+    margin: 40px;
 }
+
+header {
+    /* display: grid; */
+    display: flex;
+    background-color: rgb(216, 216, 216);
+    align-items: center;
+    grid-template-rows: repeat(2, 1fr);
+}
+
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 95%;
+}
+
+img {
+    display: flex;
+    border-radius: 100%;
+    order: -1;
+    margin-right: 20px;
+}
+
+.tools {
+    display: grid;
+    grid-gap: 15px;
+    list-style: none;
+    margin-left: 20px;
+}
+
+
+.tools a {
+    background-color: rgb(200, 220, 239);
+    display: block;
+    grid-gap: 15px;
+    text-decoration: none;
+    padding: 0.8rem;
+    /* text-align: center; */
+}
+
+.btn {
+    background: rgb(87, 87, 117);
+    color: white;
+    padding: 0.2rem 0.8rem;
+    border-radius: 3px;
+    border: 0;
+}
+
+#submit {
+    width: 70px;
+}
+
+.list {
+    display: grid;
+    grid-gap: 15px;
+}
+
+nav.main-menu {
+    display: flex;
+    margin-left: auto;
+}
+
+.main-menu ul {
+    /* display: grid; */
+    display: flex;
+    grid-gap: 15px;
+    list-style: none;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.main-menu a {
+    background-color: rgb(200, 220, 239);
+    display: block;
+    text-decoration: none;
+    padding: 0.8rem;
+    width: 100px;
+    border-radius: 3px;
+    text-align: center;
+}
+
+.main-menu a:hover {
+    background-color: rgb(23, 24, 25);
+    color: white;
+}
+
 
 .section,
 .list,
@@ -19,7 +104,7 @@ body {
 }
 
 h1 {
-    font-size: 2em;
+    font-size: 1.8em;
     font-weight: bold;
     color: black;
 }
@@ -28,23 +113,52 @@ h2 {
     font-size: 1.5em;
     font-weight: bold;
     color: black;
+    margin-left: auto;
 }
 
 #exp li,
 #skills li {
-    display: block;
+    display: grid;
+    grid-template-rows: repeat(auto-fit, 1fr);
+    grid-gap: 20px;
+    grid-template-columns: 1fr;
     background-color: rgb(200, 220, 239);
-    border: 2px solid black;
-    margin: 5px;
-    padding: 5px;
+    margin: 10px;
+    padding: 1rem;
 }
 
 footer {
+    display: flex;
     background-color: rgb(184, 214, 240);
     padding: 5px;
     margin-left: 5px;
+    margin-top: auto;
 }
 
-@media screen and (min-width: 480px) and (max-width: 1280px) {
-    background-color: ghostwhite;
+form {
+    display: grid;
+    grid-gap: 15px;
+    width: 500px;
+    margin-left: 0;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    margin-top: auto;
+
+}
+
+@media screen and (max-width: 1280px) and (min-width: 480px) {
+    body {
+        background-color: ghostwhite;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    .main-menu a {
+        grid-template-columns: 1fr;
+    }
 }

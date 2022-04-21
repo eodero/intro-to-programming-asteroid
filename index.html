@@ -7,15 +7,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edgev">
     <link rel="stylesheet" href="css/index.css">
+    <script src="https://kit.fontawesome.com/631b2dc748.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
-
     <section class="list">
-        <header>
-            <h1>Erick O Odero</h1>
-            <img src="https://avatars.githubusercontent.com/u/84427589?v=4" alt="Author's profile picture">
-            <nav>
+        <header id="header">
+            <h1 id="my-name">Erick O Odero</h1>
+            <img src="https://avatars.githubusercontent.com/u/84427589?v=4" alt="Author's profile picture" width="60"
+                height="60">
+            <nav class="main-menu">
                 <ul>
                     <li><a href="../intro-to-programming-asteroid/index.html">Home</a></li>
                     <li><a href="#about">About</a></li>
@@ -23,6 +24,7 @@
                     <li><a href="#connect">Connect</a></li>
                 </ul>
             </nav>
+
         </header>
     </section>
 
@@ -59,13 +61,13 @@
         </section>
 
         <section class="list">
-            <h1>My coding and learning tools-software and hardware</h1>
-            <ul>
+            <h1>My tools</h1>
+            <ul class="tools">
                 <li><a href="https://code.visualstudio.com/">Visual Studio Code</a></li>
                 <li><a
                         href="https://www.apple.com/macbook-air/?afid=p238%7CsS5GAoNB9-dc_mtid_1870765e38482_pcrid_569734191494_pgrid_110391415659_&cid=aos-us-kwgo-mac--slid---product-">Mac
                         Bookair</a></li>
-                <li>Windows 10 running on ASUS Desktop </li>
+                <li><a href="https://www.microsoft.com/en-us/software-download/windows10ISO">Windows 10</a></li>
                 <li><a href="https://slack.com/intl/en-in/get-started#/createnew">Slack</a></li>
                 <li><a href="https://www.freecodecamp.org/learn/">Freecodecamp</a></li>
                 <li><a href="https://whimsical.com/lesson-3-1-wireframe-exercise-NbAuTttSYsijaHafZ44mvS">Whimsical</a>
@@ -141,7 +143,7 @@
         <h2>Leave a Message</h2>
         <form name="leave_message">
 
-            <fieldset>
+            <fieldset id="details">
                 <legend><span class="number">1</span> Your details</legend>
                 <label for="name">Name:</label><br>
                 <input type="text" name="name" required="true"><br>
@@ -150,13 +152,13 @@
                 <input type="email" name="email" required="true"><br>
             </fieldset>
 
-            <fieldset>
+            <fieldset id="text_message">
                 <legend><span class="number">2</span> Your Message</legend>
                 <label for="message">Message:</label><br>
-                <textarea name="message" required="true"></textarea><br>
+                <textarea id="textMessage" name="message" required="true"></textarea><br>
             </fieldset>
 
-            <button type="submit">Submit</button>
+            <button id="submit" class="btn" type="submit">Submit</button>
 
         </form>
     </section>

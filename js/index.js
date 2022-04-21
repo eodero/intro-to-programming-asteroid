@@ -15,13 +15,24 @@ for (let i = 0; i < skills.length; i++) {
     skillsList.appendChild(skill);
 }
 
-// Handle message form submit and edit button
-const messageForm = document.querySelector('form[name="leave_message"]')
+// Create and handle edit button
+const editMessage = document.querySelector('#text_message');
 const editButton = document.createElement('button');
-editButton.classList.add('edit');
 editButton.innerText = 'Edit';
 editButton.type = 'button';
-messageForm.appendChild(editButton);
+editButton.classList.add('btn');
+editMessage.appendChild(editButton);
+
+editMessage.addEventListener('click', (e) => {
+    const button = e.target;
+    const span = document.createElement('span');
+    const editedMessage = document.createElement('input');
+    input.type = 'text';
+    console.log(newMessage);
+})
+
+// Handle message form submit  button
+const messageForm = document.querySelector('form[name="leave_message"]')
 
 messageForm.addEventListener('submit', (e) => {
     // prevent default refreshing behavior
@@ -60,3 +71,7 @@ messageForm.addEventListener('submit', (e) => {
     messageList.appendChild(newMessage);
 
 })
+
+const header = document.getElementById('header');
+header.classList.add('sticky');
+
