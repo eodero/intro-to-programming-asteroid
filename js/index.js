@@ -4,10 +4,13 @@ const footer = document.querySelector('footer');
 const copyright = document.createElement('p');
 copyright.innerHTML = `<span> &copy; Erick Odero ${thisYear}</span> `;
 footer.appendChild(copyright);
+let repositories;
 
-let skills = ['html', 'CSS', 'JavaScript'];
-const skillsSection = document.getElementById('skills');
-const skillsList = document.getElementById('skills').children[1];
+
+// Added skills and edited section
+let skills = ['HTML', 'CSS', 'JavaScript', 'Ajax', 'Fetch-API'];
+// const skillsSection = document.getElementById('skills');
+const skillsList = document.getElementById('skillz');
 
 for (let i = 0; i < skills.length; i++) {
     const skill = document.createElement('li');
@@ -15,13 +18,24 @@ for (let i = 0; i < skills.length; i++) {
     skillsList.appendChild(skill);
 }
 
-// Handle message form submit and edit button
+// Create and handle edit button
+// const editMessage = document.querySelector('#text_message');
+// const editButton = document.createElement('button');
+// editButton.textContent = 'Edit';
+// editButton.type = 'button';
+// editButton.classList.add('btn');
+// editMessage.appendChild(editButton);
+
+// editMessage.addEventListener('click', (e) => {
+// const button = e.target.parentNode;
+//     const span = document.createElement('span');
+//     const editedMessage = document.createElement('input');
+//     input.type = 'text';
+// console.log('edit');
+// })
+
+// Handle message form submit  button
 const messageForm = document.querySelector('form[name="leave_message"]')
-const editButton = document.createElement('button');
-editButton.classList.add('edit');
-editButton.innerText = 'Edit';
-editButton.type = 'button';
-messageForm.appendChild(editButton);
 
 messageForm.addEventListener('submit', (e) => {
     // prevent default refreshing behavior
@@ -58,5 +72,50 @@ messageForm.addEventListener('submit', (e) => {
     messageForm.reset();
     newMessage.appendChild(removeButton);
     messageList.appendChild(newMessage);
-
 })
+
+let messages = document.getElementById('messages');
+let userMessages = document.getElementById('users-messages').children;
+
+if (userMessages.length == 0) {
+    messages.style.display = "none";
+} else {
+    messages.style.display = "block"
+}
+
+
+const header = document.getElementById('header');
+header.classList.add('sticky');
+
+var gitHubRequest = new XMLHttpRequest();
+gitHubRequest.onreadystatechange = function () {
+    if (gitHubRequest.readyState === 4 && gitHubRequest.status === 200) {
+        gitHubRequest.responseText;
+    }
+};
+
+gitHubRequest.open('GET', 'https://api.github.com/users/eodero/repos');
+gitHubRequest.send();
+
+gitHubRequest.addEventListener('load', (e) => {
+    repositories = JSON.parse(gitHubRequest.response);
+    console.log(repositories);
+
+    const projectSection = document.getElementById('projects');
+    const projectList = projectSection.lastElementChild;
+    for (let i = 0; i < repositories.length; i++) {
+        const project = document.createElement('li');
+
+        project.innerText = repositories[i].name;
+        console.log(project.innerText = repositories[i].name)
+        projectList.appendChild(project);
+    }
+
+});
+
+
+
+
+
+
+
