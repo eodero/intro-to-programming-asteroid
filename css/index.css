@@ -1,25 +1,126 @@
+/* CSS Variables */
+:root {
+    --primary: #ddd;
+    ---dark: #333;
+    --light: #fff;
+    --shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
+}
+
 * {
     box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(---dark);
 }
 
 body {
-    background-color: whitesmoke;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    color: darkblue;
+    background: var(--light);
+    margin: 0 200px 0 200px;
+    line-height: 1.4;
+    display: grid;
+    grid-gap: 20px;
 }
+
+#skillz {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    list-style: none;
+    margin: left 0px;
+
+}
+
+#skillz li {
+    display: grid;
+    grid-gap: 15px;
+    background-color: white;
+    border: 1px solid black;
+    padding: 0.8rem;
+    width: 150px;
+    justify-items: center;
+}
+
+header {
+    display: flex;
+    background-color: rgb(230, 244, 209);
+    align-items: center;
+    grid-template-rows: repeat(2, 1fr);
+    margin-bottom: 20px;
+}
+
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    margin-left: -225px;
+}
+
+img {
+    display: flex;
+    border-radius: 100%;
+    order: -1;
+    margin-left: 225px;
+    margin-right: 20px;
+}
+
+.btn {
+    background: black;
+    color: var(--light);
+    text-decoration: none;
+    padding: 0.2rem 0.8rem;
+    border-radius: 3px;
+    border: 0;
+}
+
+#submit {
+    width: 70px;
+}
+
+nav.main-menu {
+    display: flex;
+    margin-left: auto;
+    margin-right: 230px;
+}
+
+.main-menu ul {
+    /* display: grid; */
+    display: flex;
+    grid-gap: 15px;
+    list-style: none;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.main-menu a {
+    background-color: var(--primary);
+    color: black;
+    box-shadow: var(--shadow);
+    display: block;
+    text-decoration: none;
+    padding: 0.8rem;
+    width: 100px;
+    border-radius: 3px;
+    text-align: center;
+}
+
+.main-menu a:hover {
+    background-color: rgb(23, 24, 25);
+    color: white;
+}
+
 
 .section,
 .list,
-#about,
 #projects,
-#skills,
 #messages {
-    margin: 10px;
+    margin: 20px;
     padding: 2px
 }
 
+#about {
+    margin: 20px;
+    padding: 2px;
+}
+
 h1 {
-    font-size: 2em;
+    font-size: 1.8em;
     font-weight: bold;
     color: black;
 }
@@ -28,23 +129,56 @@ h2 {
     font-size: 1.5em;
     font-weight: bold;
     color: black;
+    margin-left: 0px;
 }
 
 #exp li,
-#skills li {
-    display: block;
-    background-color: rgb(200, 220, 239);
-    border: 2px solid black;
-    margin: 5px;
-    padding: 5px;
+#projects li {
+    display: grid;
+    grid-gap: 20px;
+    background-color: rgb(230, 244, 209);
+    margin: 10px;
+    padding: 1rem;
+
 }
 
-footer {
-    background-color: rgb(184, 214, 240);
-    padding: 5px;
-    margin-left: 5px;
+ul#exp,
+.project-list {
+    padding-left: 0;
 }
 
-@media screen and (min-width: 480px) and (max-width: 1280px) {
-    background-color: ghostwhite;
+.project-list {
+    margin-bottom: 0px:
+}
+
+form {
+    display: grid;
+    grid-gap: 15px;
+    width: 500px;
+    margin-left: 10;
+    margin-top: 0px;
+    border-style: none;
+}
+
+#footer {
+    display: flex;
+    justify-content: center;
+    background-color: rgb(230, 244, 209);
+    padding: 5px;
+    /* margin-right: 0; */
+    margin: auto 0px 0px 0px;
+}
+
+@media screen and (max-width: 1280px) and (min-width: 480px) {
+    body {
+        background-color: ghostwhite;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    .main-menu a {
+        grid-template-columns: 1fr;
+    }
 }
