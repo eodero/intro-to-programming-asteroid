@@ -5,11 +5,13 @@ const copyright = document.createElement('p');
 copyright.classList.add('copyright');
 copyright.innerHTML = `<span> &copy; Erick Odero ${thisYear}</span> `;
 footer.appendChild(copyright);
-let repositories;
+const messageSection = document.querySelector('#messages');
+const listItems = document.querySelector('.users-messages');
 
 
-// Added skills and edited section
+// Add skills section
 let skills = ['HTML', 'CSS', 'JavaScript', 'Ajax', 'Fetch-API'];
+
 // const skillsSection = document.getElementById('skills');
 const skillsList = document.getElementById('skillz');
 
@@ -18,19 +20,6 @@ for (let i = 0; i < skills.length; i++) {
     skill.textContent = skills[i];
     skillsList.appendChild(skill);
 }
-
-// Create and handle edit button
-const editMessage = document.getElementById('text_message');
-const editButton = document.createElement('button');
-editButton.textContent = 'Edit';
-editButton.type = 'button';
-editButton.classList.add('btn');
-editMessage.appendChild(editButton);
-
-editButton.addEventListener('click', (e) => {
-    const messageText = document.getElementById('textMessage');
-    messageText.textContent = text;
-})
 
 // Handle message form submit  button
 const messageForm = document.querySelector('form[name="leave_message"]')
@@ -44,41 +33,56 @@ messageForm.addEventListener('submit', (e) => {
     const user_message = e.target.message;
 
     // Display messages in list
-    const messageSection = document.getElementById('messages');
     const messageList = messageSection.children[1];
     const newMessage = document.createElement('li');
-    newMessage.innerHTML = `<a href="mailto:${user_email.value}">${user_name.value}</a><span> wrote: ${user_message.value}</span>`;
-
+    newMessage.classList.add('msg-List');
+    newMessage.innerHTML = `<a href="mailto:${user_email.value}">${user_name.value}</a><span id="msg-span"> wrote: ${user_message.value}</span>`;
 
     // create remove button element
     const removeButton = document.createElement('button');
-    removeButton.innerText = 'remove';
+    removeButton.classList.add('btn');
+    removeButton.setAttribute('id', 'remove');
+    removeButton.innerText = 'Remove';
     removeButton.type = 'button';
+
+    // create edit button element
+    const editButton = document.createElement('button');
+    editButton.classList.add('btn');
+    editButton.innerText = 'Edit';
+    editButton.setAttribute('id', 'edit');
+    editButton.type = 'button';
+    newMessage.appendChild(editButton);
+
+    //handle edit button
+    editButton.addEventListener('click', (e) => {
+        const span = document.getElementById("msg-span");
+        const li = editButton.parentNode;
+        const input = document.createElement('input');
+        input.type = 'text';
+        input.value = span.textContent;
+        li.insertBefore(input, span);
+        li.removeChild(span);
+    })
 
     // handle the removeButton
     removeButton.addEventListener('click', (e) => {
         const entry = e.target.parentNode;
         entry.remove();
+        hideMessageSection();
     })
     // reset the form
     messageForm.reset();
     newMessage.appendChild(removeButton);
     messageList.appendChild(newMessage);
+    hideMessageSection();
 })
-//hide message section
 
-const msgList = document.getElementsByClassName('msgList');
-for (let i = 0; i < msgList.length; i++) {
-    let li = msgList[i];
-    if (!li.getElementsByTagName('li').length) {
-        li.style.display = 'none';
-    } else {
-        li.style.display = 'block';
-    }
-}
+//Sticky - header
 
 const header = document.getElementById('header');
 header.classList.add('sticky');
+
+//Fetch repositories using Fetch API
 
 fetch('https://api.github.com/users/eodero/repos')
     .then(response => response.json())
@@ -92,10 +96,21 @@ function displayRepo(data) {
         const project = document.createElement('li');
 
         project.innerText = data[i].name;
-        // console.log(project.innerText = repositories[i].name)
         projectList.appendChild(project);
     }
 }
 
+
+const hideMessageSection = () => {
+    const listOfMessages = listItems.childElementCount;
+    // console.log(listOfMessages);
+    if (listOfMessages == 0) {
+        messageSection.style.display = "none";
+    } else {
+        messageSection.style.display = "block";
+    }
+}
+
+hideMessageSection();
 
 
